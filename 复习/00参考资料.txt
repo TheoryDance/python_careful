@@ -18,3 +18,7 @@ Ctrl + Alt + L: 代码格式化
 Ctrl + D: 复制选定的区域或行
 Ctrl + Y: 删除选定的行
 Ctrl + Delete|Backspace: 一次删除一个单词或一个符号
+
+命名规范：
+变量命名：
+类命名：

@@ -98,4 +98,7 @@ a is b   res=False
     a=[e1,e2]  *a表示拆分为 e1, e2
     a = {k1: v1, k2: v2} **a表示拆分为k1=v1, ke=v2然后进行参数传递
 
-进度：字典的下一节（集合）
+23、在python中没有switch case语句
+
+
+

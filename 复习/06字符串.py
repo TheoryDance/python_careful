@@ -42,3 +42,14 @@ my_list = ['菜鸟教程', 'www.runoob.com']
 print("5、网站名：{0[0]}, 地址 {0[1]}".format(my_list))  # "0" 是必须的
 
 print('-----字符串内建函数-----')
+print('ranfusheng'.capitalize())
+print('ranfusheng'.center(20))
+print('ranfusheng'.count('n'))
+print('ranfusheng.jpg'.endswith('.jpg'))
+print('ranfusheng.jpg'.endswith('.png'))
+print('ran'.find('an'))  # 没有返回-1
+print('ran'.index('an'))  # 没有会抛一个异常
+print('ran fu sheng'.title())
+
+
+

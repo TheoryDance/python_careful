@@ -1,28 +1,18 @@
 #!/usr/bin/python3
-print("你好，世界")
-
-if True:
-    print("True")
-else:
-    print("False")
-
-# 多行字符串
-name = """hello,
-    this is second line
-this is third line
-"""
-print(name)
-
-# 等待用户输入
-# input("\n\n按下enter键退出.")
-
-
-
 import sys
-
-x = "runoob"
-sys.stdout.write(x + '\n')
-
 import keyword
+
+a = 60
+sys.getsizeof(a)
+x = "runoob";sys.stdout.write(x + '\n')
 print(keyword.kwlist)
+# 等待用户输入
+# name = input("\n\n按下enter键退出.")
+# print(name, type(name), int(name))
+
+tinydict = {'name': 'runoob','code':1, 'site': 'www.runoob.com'}
+print(tinydict)
+print(tinydict.keys())
+print(tinydict.values())
+
 

@@ -1,0 +1,2 @@
+first line -> hello,this is 00.txt
+second line -> hello,this is 00.txt

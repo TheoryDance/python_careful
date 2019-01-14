@@ -52,28 +52,27 @@ for i in range(6):
 
 stime = time.clock()  # 记录程序开始执行的时间，用于测试下载用时
 print('正在打开网页地址' + path + ', stime=', stime)
+imglist = []
 for line in urlopen(path):
     line = line.decode('utf-8')  # Decoding the binary data to text.
     # 使用正则表达式，提取需要下载的图片路径
-    imglist = re.findall('<a href=[\"\'](.*?\.jpg)[\"\']', line)
-    while True:
-        if q.qsize() < 100:
-            threadLock.acquire()
-            for ss in imglist:
-                print(ss)
-                imgpath = ss.split('/')[-1]
-                q.put(imgpath)
-            threadLock.release()
-            break
-        else:
-            time.sleep(1)
+    tmp_list = re.findall('<a href=[\"\'](.*?\.jpg)[\"\']', line)
+    imglist.extend([x.split('/')[-1] for x in tmp_list])  # 把所有需要下载的图片都存放到列表中
+
+total = len(imglist)
+print('需要下载的图片总张数：{}'.format(total))
+threadLock.acquire()
+for imgpath in imglist:
+    q.put(imgpath)
+threadLock.release()
 
 # 一直等待，直到下载完成
 while q.qsize() > 0:
-    time.sleep(5)
+    down_num = total-q.qsize()
+    etime = time.clock()
+    print('下载图片张数:{0:5d},进度:{1:.2f}%,耗时:{2}s'.format(down_num, down_num*100/total, etime-stime))
+    time.sleep(10)
 
 # 设置线程结束标志，各个线程自动结束
 exit_flag = 1
 time.sleep(2)
-etime = time.clock()
-print('程序用时{}s'.format(etime - stime))

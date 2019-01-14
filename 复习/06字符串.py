@@ -50,6 +50,8 @@ print('ranfusheng.jpg'.endswith('.png'))
 print('ran'.find('an'))  # 没有返回-1
 print('ran'.index('an'))  # 没有会抛一个异常
 print('ran fu sheng'.title())
+print('-------------------------------------------------------')
+print('下载图片张数:{0:5d},进度:{1:.2f}%,耗时:{2}s'.format(30, 0.32635, 42))
 
 
 

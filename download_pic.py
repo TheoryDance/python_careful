@@ -70,7 +70,8 @@ threadLock.release()
 while q.qsize() > 0:
     down_num = total-q.qsize()
     etime = time.clock()
-    print('下载图片张数:{0:5d},进度:{1:.2f}%,耗时:{2}s'.format(down_num, down_num*100/total, etime-stime))
+    cast = int(etime-stime)
+    print('下载图片张数:{0},进度:{1:.2f}%,耗时:{2}分{3}秒'.format(down_num, down_num*100/total, cast//60, cast%60))
     time.sleep(10)
 
 # 设置线程结束标志，各个线程自动结束

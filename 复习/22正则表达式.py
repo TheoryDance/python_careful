@@ -13,5 +13,6 @@ if matchObj:
     print('matchObj.group(2): ', matchObj.group(2))
 else:
     print('No match!')
+print('--------------------')
 searchObj = re.search('(?P<value>runoob)', site)
-print(searchObj)
+print(searchObj.groupdict())

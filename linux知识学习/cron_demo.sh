@@ -12,3 +12,15 @@ $ service crond stop    # 停止
 $ service crond restart # 重启
 $ service crond reload  # 重新加载
 $ service crond status  # 状态
+
+在ubuntu中，服务不是crond而是cron,使用crontab -e修改了内容，不需要重启之类的，会自动生效
+需要注意的是环境变量和加载文件的问题，
+比如我想每分钟记录一下当前时间到一个文件：
+方式一：使用crontab -e进行修改如下，不会记录出来，应该是跟bash的加载方式有关
+*/1 * * * * echo `date +"%Y-%m-%d %H:%M:%S"` >> /home/master/environment/run_records.log
+
+方式二：可行
+*/1 * * * * sh /home/master/environment/record.sh
+record.sh内容
+#！/bin/bash
+echo `date +"%Y-%m-%d %H:%M:%S"` >> /home/master/environment/run_records.log
